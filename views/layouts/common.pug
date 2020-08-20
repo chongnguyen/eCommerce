@@ -1,0 +1,358 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title M&#x1EF9; ph&#x1EA9;m 3ce
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='/styles/base.css')
+  link(rel='stylesheet', href='/styles/main.css')
+  link(rel='stylesheet', href='/styles/grid.css')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap', rel='stylesheet')
+  script(src='https://kit.fontawesome.com/31bd191ea4.js', crossorigin='anonymous')
+.app
+  block header
+    header.header
+      .grid.wide
+        nav.navbar
+          ul.navbar__list
+            li.navbar__item.navbar__item-separate
+              a.navbar__link(href='#')
+                | K&ecirc;nh Ng&#x1B0;&#x1EDD;i
+                | B&aacute;n
+            li.navbar__item.navbar__item-separate
+              a.navbar__link(href='#') T&#x1EA3;i &#x1EE9;ng d&#x1EE5;ng
+              .navbar__dropdown.navbar__dowload
+                .navbar__qr
+                  img(src='/image/qr.png', alt='qr code')
+                .navbar__app
+                  .navbar__app-chplay
+                    img(src='/image/chplay.png', alt='')
+                  .navbar__app-appstore
+                    img(src='/image/appstore.png', alt='')
+            li.navbar__item.navbar__item-cn K&#x1EBF;t n&#x1ED1;i
+            li.navbar__item
+              a.navbar__link.navbar__link-icon.navbar__link-icon--fb(href='#')
+                // <i class="fab fa-facebook"></i>
+              a.navbar__link.navbar__link-icon.navbar__link-icon--ins(href='#')
+                // <i class="fab fa-instagram"></i>
+          ul.navbar__list
+            li.navbar__item
+              a.navbar__link(href='#')
+                i.fa.fa-bell
+                span Th&ocirc;ng b&aacute;o
+              .navbar__dropdown.navbar__notify
+                .navbar__notify-heading Th&ocirc;ng b&aacute;o m&#x1EDB;i nh&#x1EAD;n
+                .navbar__notify-body
+                  a.navbar__notify-item(href='#')
+                    .navbar__notify-img
+                    .navbar__notify-content
+                      h3.navbar__notify-title &Dstrok;i&#x1EC7;n t&#x1EED; &Dstrok;&#x1ED3;ng Gi&aacute; 12K - mua th&#x1EA3; ga
+                      p.navbar__notify-desc
+                        | M&atilde; gi&#x1EA3;m gi&aacute; l&ecirc;n &dstrok;&#x1EBF;n 30K t&#x1EEB; c&#x1EED;a h&agrave;ng - ch&#x1EAD;m
+                        | ch&acirc;n l&agrave; kh&ocirc;ng c&ograve;n.
+                  a.navbar__notify-item(href='#')
+                    .navbar__notify-img
+                    .navbar__notify-content
+                      h3.navbar__notify-title &Dstrok;i&#x1EC7;n t&#x1EED; &Dstrok;&#x1ED3;ng Gi&aacute; 12K - mua th&#x1EA3; ga
+                      p.navbar__notify-desc
+                        | M&atilde; gi&#x1EA3;m gi&aacute; l&ecirc;n &dstrok;&#x1EBF;n 30K t&#x1EEB; c&#x1EED;a h&agrave;ng - ch&#x1EAD;m
+                        | ch&acirc;n l&agrave; kh&ocirc;ng c&ograve;n.
+                  a.navbar__notify-item(href='#')
+                    .navbar__notify-img
+                    .navbar__notify-content
+                      h3.navbar__notify-title &Dstrok;i&#x1EC7;n t&#x1EED; &Dstrok;&#x1ED3;ng Gi&aacute; 12K - mua th&#x1EA3; ga
+                      p.navbar__notify-desc
+                        | M&atilde; gi&#x1EA3;m gi&aacute; l&ecirc;n &dstrok;&#x1EBF;n 30K t&#x1EEB; c&#x1EED;a h&agrave;ng - ch&#x1EAD;m
+                        | ch&acirc;n l&agrave; kh&ocirc;ng c&ograve;n.
+                  a.navbar__notify-item.navbar__notify-item--active(href='#')
+                    .navbar__notify-img
+                    .navbar__notify-content
+                      h3.navbar__notify-title &Dstrok;i&#x1EC7;n t&#x1EED; &Dstrok;&#x1ED3;ng Gi&aacute; 12K - mua th&#x1EA3; ga
+                      p.navbar__notify-desc
+                        | M&atilde; gi&#x1EA3;m gi&aacute; l&ecirc;n &dstrok;&#x1EBF;n 30K t&#x1EEB; c&#x1EED;a h&agrave;ng - ch&#x1EAD;m
+                        | ch&acirc;n l&agrave; kh&ocirc;ng c&ograve;n.
+                  a.navbar__notify-item(href='#')
+                    .navbar__notify-img
+                    .navbar__notify-content
+                      h3.navbar__notify-title &Dstrok;i&#x1EC7;n t&#x1EED; &Dstrok;&#x1ED3;ng Gi&aacute; 12K - mua th&#x1EA3; ga
+                      p.navbar__notify-desc
+                        | M&atilde; gi&#x1EA3;m gi&aacute; l&ecirc;n &dstrok;&#x1EBF;n 30K t&#x1EEB; c&#x1EED;a h&agrave;ng - ch&#x1EAD;m
+                        | ch&acirc;n l&agrave; kh&ocirc;ng c&ograve;n.
+                a.navbar__notify-footer(href='#') Xem t&#x1EA5;t c&#x1EA3;
+            li.navbar__item
+              a.navbar__link(href='#')
+                i.fa.fa-question-circle
+                span Tr&#x1EE3; gi&uacute;p
+            if(userName)
+              li.navbar__item
+                a.navbar__link(href='/user/purchase')
+                  span.navbar__avatar
+                    img(src='/image/avatar-default.png', alt='avatar')
+                  span.navbar__username= userName
+                .navbar__dropdown.navbar__account
+                  a.navbar__account-item(href='/user/account') T&agrave;i kho&#x1EA3;n c&#x1EE7;a t&ocirc;i
+                  a.navbar__account-item(href='/user/purchase') &Dstrok;&#x1A1;n mua
+                  a.navbar__account-item(href='/user/logout') &Dstrok;&abreve;ng xu&#x1EA5;t
+            else
+              li.navbar__item.navbar__item-separate
+                a.navbar__link(href='/auth/register') &Dstrok;&abreve;ng k&yacute;
+              li.navbar__item
+                a.navbar__link(href='/auth/login') &Dstrok;&abreve;ng nh&#x1EAD;p
+            //
+              <li class="navbar__item navbar__item-separate">
+              <a href="#" class="navbar__link ">Đăng ký</a>
+              </li>
+              <li class="navbar__item ">
+              <a href="#" class="navbar__link">Đăng nhập</a>
+              </li>
+            //- li.navbar__item
+            //-   a.navbar__link(href='#')
+            //-     span.navbar__avatar
+            //-       img(src='/image/avatar-default.png', alt='avatar')
+            //-     span.navbar__username chonnguyen19
+            //-   .navbar__dropdown.navbar__account
+            //-     a.navbar__account-item(href='#') T&agrave;i kho&#x1EA3;n c&#x1EE7;a t&ocirc;i
+            //-     a.navbar__account-item(href='#') &Dstrok;&#x1A1;n mua
+            //-     a.navbar__account-item(href='#') &Dstrok;&abreve;ng xu&#x1EA5;t
+        .header-with-search
+          a.header__logo(href='/')
+            img(src='/image/logo1.png', alt='logo')
+          form.header__form(action='', method='get')
+            input.header__form-input(type='text', name='q', placeholder='Tìm sản phẩm, thương hiệu,...')
+            .header__form-history
+              a.header__form-history-item(href='#') T&#x1EA5;m l&oacute;t chu&#x1ED9;t
+              a.header__form-history-item(href='#') Qu&#x1EA7;n &aacute;o th&#x1EC3; thao nam
+              a.header__form-history-item(href='#') Son m&ocirc;i 3ce
+            button.header__form-btn(type='submit')
+              i.header__form-btn-icon.fa.fa-search
+          .header-with-search__cart
+            .header__cart
+              a.header__cart-icon(href='#')
+                i.fa.fa-cart-plus
+                span.header__cart-number-badge 22
+              .cart-dropdown
+                p.cart-dropdown__heading S&#x1EA3;n ph&#x1EA9;m m&#x1EDB;i th&ecirc;m
+                .cart-dropdown__body
+                  a.cart-dropdown__item-link(href='#')
+                    .cart-dropdown__item
+                      .cart-dropdown__img
+                      .cart-dropdown__content
+                        h3.cart-dropdown__title &Dstrok;&#x1EA7;u thu chu&#x1ED9;t kh&ocirc;ng d&acirc;y logitech
+                        p.cart-dropdown__price 180.000&dstrok;
+                        .cart-dropdown__classify Ph&acirc;n lo&#x1EA1;i h&agrave;ng: Usb unifying 3mm
+                        a.cart-dropdown__btn-del(href='#') X&oacute;a
+                  a.cart-dropdown__item-link(href='#')
+                    .cart-dropdown__item
+                      .cart-dropdown__img
+                      .cart-dropdown__content
+                        h3.cart-dropdown__title &Dstrok;&#x1EA7;u thu chu&#x1ED9;t kh&ocirc;ng d&acirc;y logitech
+                        p.cart-dropdown__price 180.000&dstrok;
+                        .cart-dropdown__classify Ph&acirc;n lo&#x1EA1;i h&agrave;ng: Usb unifying 3mm
+                        a.cart-dropdown__btn-del(href='#') X&oacute;a
+                  a.cart-dropdown__item-link(href='#')
+                    .cart-dropdown__item
+                      .cart-dropdown__img
+                      .cart-dropdown__content
+                        h3.cart-dropdown__title &Dstrok;&#x1EA7;u thu chu&#x1ED9;t kh&ocirc;ng d&acirc;y logitech
+                        p.cart-dropdown__price 180.000&dstrok;
+                        .cart-dropdown__classify Ph&acirc;n lo&#x1EA1;i h&agrave;ng: Usb unifying 3mm
+                        a.cart-dropdown__btn-del(href='#') X&oacute;a
+                  a.cart-dropdown__item-link(href='#')
+                    .cart-dropdown__item
+                      .cart-dropdown__img
+                      .cart-dropdown__content
+                        h3.cart-dropdown__title &Dstrok;&#x1EA7;u thu chu&#x1ED9;t kh&ocirc;ng d&acirc;y logitech
+                        p.cart-dropdown__price 180.000&dstrok;
+                        .cart-dropdown__classify Ph&acirc;n lo&#x1EA1;i h&agrave;ng: Usb unifying 3mm
+                        a.cart-dropdown__btn-del(href='#') X&oacute;a
+                .cart-dropdown__footer
+                  p.cart-dropdown__total-item 22 S&#x1EA3;n ph&#x1EA9;m th&ecirc;m v&agrave;o gi&#x1ECF; h&agrave;ng
+                  a.btn.btn-primary(href='#') Xem gi&#x1ECF; h&agrave;ng
+    // End header
+  block container
+    .container
+      .grid.wide
+        .row
+          .col.l-2
+            aside.category
+              h4.category__heading
+                i.fa.fa-list-ul
+                span  Danh M&#x1EE5;c
+              a.category__item-link(href='#') T&#x1EA5;t c&#x1EA3; s&#x1EA3;n ph&#x1EA9;m
+              a.category__item-link(href='#') Ohui
+              a.category__item-link.category__item-link--active(href='#') 3ce
+              a.category__item-link(href='#') Whoo
+              a.category__item-link(href='#') Th&#x1EF1;c ph&#x1EA7;m ch&#x1EE9;c n&abreve;ng
+              a.category__item-link(href='#') D&#x1ECB;ch v&#x1EE5;
+            // End aside
+          .col.l-10
+            main.main-content
+              .filter-bar
+                .filter-bar__left
+                  p.filter-bar__label S&#x1EAF;p x&#x1EBF;p theo
+                  a.filter-bar__btn(href='#') Ph&#x1ED5; bi&#x1EBF;n
+                  a.filter-bar__btn.filter-bar__btn-primary(href='#') M&#x1EDB;i nh&#x1EA5;t
+                  a.filter-bar__btn(href='#') B&aacute;n ch&#x1EA1;y
+                  .filter-bar__price
+                    span.filter-bar__price-label Gi&aacute;
+                    i.fa.fa-angle-down
+                    .filter-bar__price-dropdown
+                      a.filter-bar__price-item(href='#') Gi&aacute;: Th&#x1EA5;p &dstrok;&#x1EBF;n cao
+                      a.filter-bar__price-item(href='#') Gi&aacute;: Cao &dstrok;&#x1EBF;n th&#x1EA5;p
+                // End filter bar left
+                .filter-bar__right
+                  .filter-bar__page
+                    span.filter-bar__page-current 1
+                    span /14
+                  .filter-bar__directional
+                    a.filter-bar__directional--left.filter-bar__directional--disable(href='#')
+                      i.fa.fa-angle-left
+                    a.filter-bar__directional--right(href='#')
+                      i.fa.fa-angle-right
+                // End filter bar right
+              // End filter bar
+              .home-product
+                .row
+                  -var n = 0;
+                  while n < 50
+                    -n++
+                    .col.l-2-4
+                      a.product-card__link(href='#')
+                        .product-card
+                          .product-card__image(style=`background-image: url(${products.image});`)
+                            // <img src="https://cf.shopee.vn/file/8bfdf4fd7920223080f33b73f7cc7389_tn" alt="image">
+                          .product-card__body
+                            h2.product-card__name= products.name
+                            .product-card__price
+                              del.product-card__price--old #{products.oldPrice}&dstrok;
+                              span.product-card__price--new #{products.price}&dstrok;
+                              span.product-card__ship
+                                i.fa.fa-shipping-fast
+                            .product-card__rating
+                              .product-card__rating-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.far.fa-star
+                              .product-card__rating-sold &Dstrok;&atilde; b&aacute;n 160
+                            .product-card__address-shop Tp H&#x1ED3; Ch&iacute; Minh
+                          .product-card__favorite-tag Y&ecirc;u th&iacute;ch
+                          .product-card__discount-tag
+                            span.product-card__discount-percent= Math.round(products.price / products.oldPrice) * 100 + '%'
+                            span.product-card__discount-label GI&#x1EA2;M
+              // End home product
+            // End main-content
+            .pagination
+              ul.pagination__list
+                li.pagination__item
+                  a.pagination__link(href='#')
+                    i.pagination__link-icon.fas.fa-angle-left
+                li.pagination__item
+                  a.pagination__link.pagination__link--active(href='#') 1
+                li.pagination__item
+                  a.pagination__link(href='#') 2
+                li.pagination__item
+                  a.pagination__link(href='#') 3
+                li.pagination__item
+                  a.pagination__link(href='#') 4
+                li.pagination__item
+                  a.pagination__link(href='#') 5
+                li.pagination__item
+                  a.pagination__link(href='#')
+                    i.pagination__link-icon.fas.fa-angle-right
+            // End Pagination
+    // End container
+  block footer
+    footer.footer
+      .grid.wide
+        .row
+          .col.l-2-4.m-4.c-12
+            .footer__care
+              h3.footer__title-heading CH&Abreve;M S&Oacute;C KH&Aacute;CH H&Agrave;NG
+              ul.footer__care-list
+                li.footer__care-item
+                  a.footer__care-link(href='') Trung t&acirc;m h&#x1ED7; tr&#x1EE3;
+                li.footer__care-item
+                  a.footer__care-link(href='') Shopee mall
+                li.footer__care-item
+                  a.footer__care-link(href='') H&#x1B0;&#x1EDB;ng d&#x1EAB;n mua h&agrave;ng
+                li.footer__care-item
+                  a.footer__care-link(href='') H&#x1B0;&#x1EDB;ng d&#x1EAB;n b&aacute;n h&agrave;ng
+                li.footer__care-item
+                  a.footer__care-link(href='') Ch&abreve;m s&oacute;c kh&aacute;ch h&agrave;ng
+          .col.l-2-4.m-4.c-12
+            .footer__about
+              h3.footer__title-heading V&#x1EC0; SHOPEE
+              ul.footer__about-list
+                li.footer__about-item
+                  a.footer__about-link(href='') Gi&#x1EDB;i thi&#x1EC7;u v&#x1EC1; shopee Vi&#x1EC7;t Nam
+                li.footer__about-item
+                  a.footer__about-link(href='') Tuy&#x1EC3;n d&#x1EE5;ng
+                li.footer__about-item
+                  a.footer__about-link(href='') &Dstrok;i&#x1EC1;u kho&#x1EA3;n Shopee
+                li.footer__about-item
+                  a.footer__about-link(href='') Ch&iacute;nh s&aacute;ch b&#x1EA3;o m&#x1EAD;t
+                li.footer__about-item
+                  a.footer__about-link(href='') K&ecirc;nh ng&#x1B0;&#x1EDD;i b&aacute;n
+          .col.l-2-4.m-4.c-12
+            .footer__pay
+              h3.footer__title-heading THANH TO&Aacute;N
+              ul.footer__pay-list
+                li.footer__pay-item.footer__pay-item--visa
+                li.footer__pay-item.footer__pay-item--mc
+                li.footer__pay-item.footer__pay-item--jcb
+                li.footer__pay-item.footer__pay-item--blue
+                li.footer__pay-item.footer__pay-item--cod
+                li.footer__pay-item.footer__pay-item--tg
+              h3.footer__title-heading &Dstrok;&#x1A0;N V&#x1ECA; V&#x1EAC;N CHUY&#x1EC2;N
+              ul.footer__pay-list
+                li.footer__pay-item.footer__pay-item--ghtk
+                li.footer__pay-item.footer__pay-item--ghn
+                li.footer__pay-item.footer__pay-item--vt-post
+                li.footer__pay-item.footer__pay-item--vn-post
+                li.footer__pay-item.footer__pay-item--jt
+                li.footer__pay-item.footer__pay-item--grap
+          .col.l-2-4.m-4.c-12
+            .footer__follow
+              h3.footer__title-heading THEO D&Otilde;I CH&Uacute;NG T&Ocirc;I TR&Ecirc;N
+              ul.footer__follow-list
+                li.footer__follow-item
+                  a.footer__follow-link(href='')
+                    i.fab.fa-facebook
+                    span Facebook
+                li.footer__follow-item
+                  a.footer__follow-link(href='')
+                    i.fab.fa-instagram
+                    span Instagram
+                li.footer__follow-item
+                  a.footer__follow-link(href='')
+                    i.fab.fa-linkedin
+                    span Linkedin
+          .col.l-2-4.m-4.c-12
+            .footer__download
+              h3.footer__title-heading T&#x1EA2;I &#x1EE8;NG D&#x1EE4;NG SHOPEE NGAY TH&Ocirc;I
+              .footer__download-body
+                .footer__download-qr
+                  img(src='/image/qr.png', alt='mã qr')
+                .footer__download-store
+                  a(href='')
+                    img(src='/image/appstore.png', alt='')
+                  a(href='')
+                    img(src='/image/chplay.png', alt='')
+      .footer-info
+        ul.footer-info-list
+          li.footer-info-item
+            a.footer-info-item__link(href='#') CH&Iacute;NH S&Aacute;CH B&#x1EA2;O M&#x1EAC;T
+          li.footer-info-item
+            a.footer-info-item__link(href='#') QUI CH&#x1EBE; HO&#x1EA0;T &Dstrok;&#x1ED8;NG
+          li.footer-info-item
+            a.footer-info-item__link(href='#') CH&Iacute;NH S&Aacute;CH V&#x1EAC;N CHUY&#x1EC2;N
+          li.footer-info-item
+            a.footer-info-item__link(href='#') CH&Iacute;NH S&Aacute;CH TR&#x1EA2; H&Agrave;NG V&Agrave; HO&Agrave;N TI&#x1EC0;N
+        .footer-register-vn
+          span.footer-rgt-label C&ocirc;ng ty TNHH F8
+        p.footer-address &Dstrok;&#x1ECB;a ch&#x1EC9;: S&#x1ED1; 20, ng&otilde; 538, &dstrok;&#x1B0;&#x1EDD;ng L&aacute;ng, qu&#x1EAD;n &Dstrok;&#x1ED1;ng &Dstrok;a, th&agrave;nh ph&#x1ED1; H&agrave; N&#x1ED9;i
+        p.footer-bussiness-id
+          | M&atilde; s&#x1ED1; doanh nghi&#x1EC7;p: 0108838679 do S&#x1EDF; K&#x1EBF; ho&#x1EA1;ch &amp; &Dstrok;&#x1EA7;u t&#x1B0; TP H&agrave; N&#x1ED9;i c&#x1EA5;p l&#x1EA7;n &dstrok;&#x1EA7;u ng&agrave;y
+          | 10/02/2015
+        p.copy-right &copy; 2015 - B&#x1EA3;n quy&#x1EC1;n thu&#x1ED9;c v&#x1EC1; C&ocirc;ng ty TNHH TICKID

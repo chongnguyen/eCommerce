@@ -1,0 +1,64 @@
+//- doctype html
+//- head
+//-   meta(charset='UTF-8')
+//-   title M&#x1EF9; ph&#x1EA9;m 3ce
+//-   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+//-   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' integrity='sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk' crossorigin='anonymous')
+//-   script(src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js")
+
+//-   script(src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js")
+
+//-   script(src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js")
+//-   script(src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js")
+//- .app
+//-   block header
+//-     h1 Đăng Ký
+//-   block contaier
+//-     if(errs)
+//-       for err in errs
+//-         .alert.alert-danger.alert-dismissible.fade.show.w-50.mx-auto(role='alert')
+//-           span= err
+//-           button.close(type='button' data-dismiss='alert' aria-label='Close')
+//-             span(aria-hidden='true') &times;
+
+//-     form(method='POST').w-50.mx-auto
+//-       //- .form-group
+//-       //-   label(for='emailRegister') Email
+//-       //-   input#emailRegister.form-control(type='email' name='email' value=values.email?values.email : '' required)
+//-       //-   small#emailHelp.form-text.text-muted Chúng tôi sẽ không bao giờ chia 
+//-       //-     | sẽ email của bạn với người khác.
+//-       .form-group
+//-         label(for='phone') Số điện thoại
+//-         input#phone.form-control(type='text' name='phone' value=values.phone?values.phone : '' required)
+//-       .form-group
+//-         label(for='pwRegister') Mật khẩu
+//-         input#pwRegister.form-control(type='password' name='password'  required)
+//-       .form-group
+//-         label(for='confirmRegister') Nhập lại mật khẩu
+//-         input#confirmRegister.form-control(type='password' name='confirm'  required)
+//-       button.btn.btn-primary(type='submit') Đăng Ký
+
+//-   script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+//-   script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+//-   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+//-   script(src="/js/register.js")
+
+
+extend ../layouts/common
+
+block container
+  .form-login
+    form(action='')
+      h2.form__heading &Dstrok;&abreve;ng K&yacute;
+      .form__row
+        input.form__input(type='text' required='' name='phone' placeholder='Số điện thoại')
+      .form__row
+        input.form__input(type='text' required='' name='password' placeholder='Mật khẩu')
+      .form__row
+        input.form__input(type='password' required='' name='confirm' placeholder='Nhập lại mật khẩu')
+      .form__row
+        .lable-login
+          | B&#x1EA1;n &dstrok;&atilde; c&oacute; t&agrave;i kho&#x1EA3;n? 
+          a.lable-login-link(href='/auth/login')  &Dstrok;&abreve;ng nh&#x1EAD;p
+      .form__row
+        input.btn.btn-submit(type='submit' value='Đăng Ký')
