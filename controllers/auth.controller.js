@@ -25,6 +25,7 @@ module.exports.postRegister = async (req, res) => {
     , verifyCode = generatorCode()
     , verified = false;
 
+  phone = phone.replace(0, '+84');
   User.create({ phone, password, verifyCode, verified }, (err, data) => {
     data.sendMessage(verifyCode, phone);
   });
@@ -38,10 +39,12 @@ module.exports.postRegister = async (req, res) => {
 
 module.exports.postLogin = async (req, res) => {
   let { phone, password } = req.body;
+
+  phone = phone.replace(0, '+84');
   let user = await User.findOne({ phone, password: md5(password) });
   if (!user) {
     res.render('auths/login', {
-      errs: ['Sai tai khoan hoac mat khau'],
+      errs: ['Sai tài khoản hoặc mật khẩu!'],
       values: req.body
     });
     return;

@@ -1,3 +1,44 @@
-extend ../layouts/common
-
-block container
+extend ./account
+block content-profile
+  .purchase
+    .purchase__topbar
+      a.purchase__topbar__link(href='/user/purchase/') T&#x1EA5;t c&#x1EA3;
+      a.purchase__topbar__link(href='/user/purchase/') Ch&#x1EDD; x&aacute;c nh&#x1EAD;n
+      a.purchase__topbar__link(href='/user/purchase/') Ch&#x1EDD; l&#x1EA5;y h&agrave;ng
+      a.purchase__topbar__link(href='/user/purchase/') &Dstrok;ang giao
+      a.purchase__topbar__link(href='/user/purchase/') &Dstrok;&atilde; giao
+    if(!products[0])
+      .purchase__empty
+        img.purchase__empty-img(src="/image/bill-empty.png", alt="")
+        p.purchase__empty-label Không tìm thấy đơn hàng nào!
+    else
+      each product, i in products
+        .purchase__body
+          .purchase__body-top
+            .purchase__shop-info
+              .purchase__shop-img
+                img(src= shops[i].avatar, alt='')
+              p.purchase__shop-name= shops[i].shopName
+            .purchase__state
+              if(bills[i].state)
+                span.purchase__state-label Đang lấy hàng
+              else
+                span.purchase__state-label Chờ xác nhận
+          .purchase__item
+            .purchase__item-pic
+              img(src= product.image, alt='')
+            .purchase__item-content
+              p.purchase__item-name= product.name
+              span.purchase__item-quantity x1
+            .purchase__item-unit-price
+              del.purchase__item-unit-oldprice= product.oldPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+              span.purchase__item-unit-newprice= product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+          .purchase__body-bottom
+            .purchase__body-bottom-price
+              span.purchase__body-bottom-label T&#x1ED5;ng s&#x1ED1; ti&#x1EC1;n: 
+              .purchase__body-bottom-totalprice= product.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+            .purchase__body-bottom-action
+              a.btn.btn-primary.btn-buy-again(href='#') Mua l&#x1EA7;n n&#x1EEF;a
+              a.btn.btn-secondary.btn-detail-bill(href='#') Chi ti&#x1EBF;t &dstrok;&#x1A1;n h&agrave;ng
+              if(!bills[i].state)
+                a.btn.btn-secondary.btn-detail-bill(href='/user/purchase/delete/' + bills[i].id) Hủy đơn hàng

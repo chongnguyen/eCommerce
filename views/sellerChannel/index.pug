@@ -1,0 +1,109 @@
+doctype html
+head
+  //- <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  //- <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  meta(charset='UTF-8')
+  title Kênh người bán
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/styles/base.css')
+  link(rel='stylesheet' href='/styles/seller.css')
+  link(rel='stylesheet' href='/styles/grid.css')
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap' rel='stylesheet')
+  script(src='https://kit.fontawesome.com/31bd191ea4.js' crossorigin='anonymous')
+body
+  .app
+    block header
+      header.header
+        .grid.wide
+          .header__content
+            .header__logo
+              a(href='/seller/index')
+                img.header__logo-img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT6ezATkGF95YP49r_SHhGzu7iq8bKpzTdF5g&usqp=CAU' alt='')
+                span.header__logo-label K&ecirc;nh ng&#x1B0;&#x1EDD;i b&aacute;n
+                block contentHeader
+            .header__account
+              .header__avatar
+                img(src=userAvatar alt='avatar')
+              .header__name= userName
+              .header__account-dropdown
+                a.header__account-link(href='/seller/profile')
+                  i.fas.fa-id-card.header__account-link-icon
+                  span.header__account-link-label H&#x1ED3; s&#x1A1; shop
+                a.header__account-link(href='/user/logout')
+                  i.fas.fa-sign-out-alt.header__account-link-icon
+                  span.header__account-link-label &Dstrok;&abreve;ng xu&#x1EA5;t
+    block container
+      .container
+        .grid.wide
+          .row
+            .col.l-2
+              .sidebar
+                .sidebar__item
+                  p.sidebar__heading
+                    img(src='https://cf.shopee.vn/file/3fa3bdb20eb201ae3f157ee8d11a39d5' alt='')
+                    span Qu&#x1EA3;n l&yacute; s&#x1EA3;n ph&#x1EA9;m
+                    i.fas.fa-angle-down
+                  #sidebarDropdown.sidebar__dropdown
+                    a.sidebar__dropdown-item(href='/seller/product') T&#x1EA5;t c&#x1EA3; s&#x1EA3;n ph&#x1EA9;m
+                    a.sidebar__dropdown-item(href='/seller/create') Th&ecirc;m s&#x1EA3;n ph&#x1EA9;m
+                .sidebar__item
+                  p.sidebar__heading
+                    img(src='https://cf.shopee.vn/file/f82f8ccb649afcdf4f07f1dd9c41bcb0' alt='')
+                    span Qu&#x1EA3;n l&yacute; &dstrok;&#x1A1;n h&agrave;ng
+                    i.fas.fa-angle-down
+                  #sidebarDropdown.sidebar__dropdown
+                    a.sidebar__dropdown-item(href='/seller/bill') T&#x1EA5;t c&#x1EA3;
+                    a.sidebar__dropdown-item(href='#') Ch&#x1EDD; x&aacute;c nh&#x1EAD;n
+                    a.sidebar__dropdown-item(href='#') &Dstrok;&atilde; h&#x1EE7;y
+                    a.sidebar__dropdown-item(href='#') Tr&#x1EA3; h&agrave;ng
+                    a.sidebar__dropdown-item(href='#') Ch&#x1EDD; l&#x1EA5;y h&agrave;ng
+                .sidebar__item
+                  p.sidebar__heading
+                    img(src='https://cf.shopee.vn/file/6b1ffcde1ff12621088110f419a5283a' alt='')
+                    span Qu&#x1EA3;n l&yacute; shop
+                    i.fas.fa-angle-down
+                  #sidebarDropdown.sidebar__dropdown
+                    a.sidebar__dropdown-item(href='/seller/profile') H&#x1ED3; s&#x1A1; shop
+            .col.l-10
+              block content
+                main.main
+                  .todo
+                    h3.todo__heading Nh&#x1EEF;ng vi&#x1EC7;c c&#x1EA7;n l&agrave;m
+                    p.todo__heading-sub Nh&#x1EEF;ng vi&#x1EC7;c b&#x1EA1;n s&#x1EBD; ph&#x1EA3;i l&agrave;m
+                    .todo__content
+                      .row
+                        -n = 0;
+                        .col.l-3
+                          a.todo__item.separate(href='/seller/bill')
+                            p.todo__item-num= stateBill[n++] || 0
+                            p.todo__item-label Ch&#x1EDD; x&aacute;c nh&#x1EAD;n
+                        .col.l-3
+                          a.todo__item.separate(href='/seller/bill')
+                            p.todo__item-num= stateBill[n++] || 0
+                            p.todo__item-label &Dstrok;&atilde; x&#x1EED; l&yacute;
+                        .col.l-3
+                          a.todo__item.separate(href='/seller/...')
+                            p.todo__item-num= stateBill[n++] || 0
+                            p.todo__item-label &Dstrok;&#x1A1;n h&#x1EE7;y
+                        .col.l-3
+                          a.todo__item(href='/seller/...')
+                            p.todo__item-num= stateBill[n++] || 0
+                            p.todo__item-label &Dstrok;&atilde; x&#x1EED; l&yacute;
+                        .col.l-3
+                          a.todo__item.separate(href='/seller/...')
+                            p.todo__item-num= stateBill[n++] || 0
+                            p.todo__item-label Ch&#x1B0;&#x1A1;ng tr&igrave;nh khuy&#x1EBF;n m&atilde;i
+                        .col.l-3
+                          a.todo__item.separate(href='/seller/...')
+                            p.todo__item-num= stateBill[n++] || 0
+                            p.todo__item-label Tr&#x1EA3; h&agrave;ng / Ho&agrave;n ti&#x1EC1;n
+                        .col.l-3
+                          a.todo__item.separate(href='/seller/...')
+                            p.todo__item-num= stateBill[n++] || 0
+                            p.todo__item-label S&#x1EA3;n ph&#x1EA9;m h&#x1EBF;t h&agrave;ng
+                        .col.l-3
+                          a.todo__item(href='/seller/...')
+                            p.todo__item-num= stateBill[n++] || 0
+                            p.todo__item-label S&#x1EA3;n ph&#x1EA9;m b&#x1ECB; kh&oacute;a
+
+  script(src="/js/seller.js")

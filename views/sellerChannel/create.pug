@@ -1,0 +1,59 @@
+extend ./index
+block contentHeader
+  span.title-page Thêm sản phẩm
+block container
+  .container
+    .grid.wide
+      .row
+        .col.l-10
+          .add-product
+            form#form-create(action='', method='POST' enctype="multipart/form-data")
+              #info.add-product__info
+                h3.add-product__heading Th&ocirc;ng tin c&#x1A1; b&#x1EA3;n
+                p.form-group
+                  label.form-group__label(for='name') T&ecirc;n s&#x1EA3;n ph&#x1EA9;m(*)
+                  input#name.form-group__input(required='required', name='name')
+                p.form-group
+                  label.form-group__label(for='sku') M&atilde; SKU(*)
+                  input#sku.form-group__input(required='required', name='sku')
+                p.form-group
+                  label.form-group__label(for='description') M&ocirc; t&#x1EA3;(*)
+                  textarea#description.form-group__input(required='required', name='description', cols='100', rows='25')
+                p.form-group
+                  label.form-group__label(for='genres') Danh m&#x1EE5;c
+                  select#genres.form-group__select(name='genres')
+                    option.form-group__select-item(value='son môi') Son m&ocirc;i
+                    option.form-group__select-item(value='trang điểm mặt') Trang &dstrok;i&#x1EC3;m m&#x1EB7;t
+                    option.form-group__select-item(value='trang điểm mắt') Trang &dstrok;i&#x1EC3;m m&#x1EAF;t
+                    option.form-group__select-item(value='chăm sóc da') Ch&abreve;m s&oacute;c da
+                    option.form-group__select-item(value='nước hoa') N&#x1B0;&#x1EDB;c hoa
+                    option.form-group__select-item(value='chăm sóc tóc') Ch&abreve;m s&oacute;c t&oacute;c
+                    option.form-group__select-item(value='khác') Kh&aacute;c
+              #seller.add-product__price
+                h3.add-product__heading Th&ocirc;ng tin b&aacute;n h&agrave;ng
+                p.form-group
+                  label.form-group__label(for='price') Gi&aacute; b&aacute;n(*)
+                  input#price.form-group__input(required='required', name='price' min=1000 max=999999 title='tối thiểu 1000')
+                  // <label class='form-group__label-d' for="">(đ)</label>
+                p.form-group
+                  label.form-group__label(for='oldPrice') Gi&aacute; g&#x1ED1;c
+                  input#oldPrice.form-group__input(required='required', name='oldPrice', value='0')
+                  // <label class='form-group__label-d' for="">(đ)</label>
+                p.form-group
+                  label.form-group__label(for='quantum') S&#x1ED1; l&#x1B0;&#x1EE3;ng(*)
+                  input#quantum.form-group__input(required='required', name='quantum', value='1')
+              #image.add-product__image
+                h3.add-product__heading Qu&#x1EA3;n l&yacute; h&igrave;nh &#x1EA3;nh
+                input.form-group__input1(type='file', name='image' required)
+              .form-group__btn
+                input.btn-primary.btn-seller(type="submit", value="Tạo sản phẩm")
+        .col.l-2
+          aside.anchor
+            a.anchor__link.active(href='#info') Th&ocirc;ng tin c&#x1A1; b&#x1EA3;n
+            a.anchor__link(href='#seller') Th&ocirc;ng tin b&aacute;n h&agrave;ng
+            a.anchor__link(href='#image') Qu&#x1EA3;n l&yacute; h&igrave;nh &#x1EA3;nh
+  div#box-notify
+    div.box-notify-image
+      img(src="/image/done-icon.png")
+    p.box-notify__label Thêm sản phẩm thành công
+  script(src="/js/showNotify.js")    

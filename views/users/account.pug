@@ -1,3 +1,63 @@
 extend ../layouts/common
 
 block container
+  .container
+    .grid.wide
+      .row
+        .col.l-2
+          aside.sidebar_account
+            a.account(href='/user/account')
+              .account-content
+                .account__avatar
+                  img(src= userAvatar, alt='avatar')
+                .account__content
+                  p.account__content-name= user.name
+                  .account__content-edit
+                    i.fa.fa-pencil-alt
+                    span S&#x1EED;a h&#x1ED3; s&#x1A1;
+            .my-account
+              .aside-icon-image
+                img(src='/image/user.png', alt='')
+              a.my-account__lable(href='/user/account') T&agrave;i kho&#x1EA3;n c&#x1EE7;a t&ocirc;i
+            .my-purchase
+              .aside-icon-image
+                img(src='/image/bill.png', alt='')
+              a.my-purchase__lable(href='/user/purchase') &Dstrok;&#x1A1;n mua
+        // End aside
+        .col.l-10
+          block content-profile
+            .profile
+              p.profile__heading H&#x1ED3; S&#x1A1; C&#x1EE7;a T&ocirc;i
+              p.profile__heading-sub Qu&#x1EA3;n l&yacute; th&ocirc;ng tin h&#x1ED3; s&#x1A1; &dstrok;&#x1EC3; b&#x1EA3;o m&#x1EAD;t t&agrave;i kho&#x1EA3;n
+              .profile__body
+                form(action='', method='POST' enctype="multipart/form-data")
+                  .row
+                    .col.l-8
+                      .profile__info
+                        .form__field
+                          lable.form__label T&ecirc;n
+                          input.form-profile__input(name='name' value = user ? user.name : '' maxlength='30')
+                        .form__field
+                          lable.form__label S&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i
+                          input.form-profile__input(name='phone' disabled='' value = user ? user.phone : '')
+                        .form__field
+                          lable.form__label Email
+                          input.form-profile__input(name='email' value = user ? user.email : '')
+                        .form__field
+                          lable.form__label T&ecirc;n shop
+                          input.form-profile__input(name='shopName' value = user ? user.shopName : '')
+                        .form__field
+                          lable.form__label Địa Chỉ
+                          input.form-profile__input(name='address' value = user ? user.address : '')
+                        input.btn.btn-primary.profile__info-btn#btn-show(type='submit', value='Lưu')
+                    .col.l-1
+                      .form__separate
+                    .col.l-3
+                      .profile__avatar
+                        img.profile__avatar-img(src=userAvatar, alt='')
+                        input.profile__avatar-file(type='file' name='avatar')
+  div#box-notify
+    div.box-notify-image
+      img(src="/image/done-icon.png")
+    p.box-notify__label Thay đổi thành công!
+  script(src="/js/showNotify.js")

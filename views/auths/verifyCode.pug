@@ -22,10 +22,10 @@ extend ../layouts/common
 
 block container
   .form-login
-    form(action='')
+    form(method='POST')
       h2.form__heading Xác Minh
       .form__row
-        input.form__input(type='text' required='' name='phone' placeholder='Nhập mã xác nhận')
+        input.form__input(type='text' required='' name='verifyCode' placeholder='Nhập mã xác nhận')
       //- .form__row
       //-   .lable-login
       //-     | B&#x1EA1;n chưa c&oacute; t&agrave;i kho&#x1EA3;n? 

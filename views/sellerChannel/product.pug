@@ -1,0 +1,57 @@
+extend ./index
+block contentHeader
+  span.title-page Tất cả sản phẩm
+block content
+  .bill-box
+    .bill-box__top
+      .bill-box__top-nav
+        a.bill-box__top-item(href='/bill') Tất cả
+        a.bill-box__top-item(href='/') Chờ xác nhận
+        a.bill-box__top-item(href='/') Đang giao
+        a.bill-box__top-item(href='/') Đã giao
+        a.bill-box__top-item(href='/') Đã huỷ
+      .bill-box__top-search
+        form(action="", method="get")
+          input.bill-box__top-input(value = value || '', name='q' placeholder='Tìm đơn hàng')
+          input.btn.btn-primary.bill-box__top-btn(type="submit", value="Tìm")
+    block table
+      .bill-box__body
+        .cart
+          .cart-bar
+            .cart-bar__product S&#x1EA3;n ph&#x1EA9;m
+            .cart-bar__unit-price &Dstrok;&#x1A1;n gi&aacute;
+            .cart-bar__quantum S&#x1ED1; l&#x1B0;&#x1EE3;ng
+            .cart-bar__handle Thao t&aacute;c
+          each product, i in products
+            .cart-item
+              .cart-item__product
+                .cart-item__img
+                  img(src=product.image, alt='')
+                a(href='/detail/'+product.id).cart-item__name= product.name
+              .cart-item__unit-price
+                del= product.oldPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+                span &nbsp;&nbsp;&nbsp;
+                span= product.price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
+              .cart-item__quantum= product.quantum
+              .cart-item__handle
+                a.cart-item__delete(href='/seller/product/delete/' + product.id)  X&oacute;a
+          div.cart-btn
+            a.btn.btn-primary.btn-purchase Mua hàng
+        //- table.bill-box__body
+        //-   thead
+        //-     tr.table__heading
+        //-       th Sản phẩm
+        //-       th Đơn giá
+        //-       th Số lượng 
+        //-   tbody
+        //-     each product, index in products
+        //-       tr.table-row__item
+        //-         td.table-row__product
+        //-           img(src=product.image, alt="hình ảnh")
+        //-           //- img(src='https://cf.shopee.vn/file/3fab8b293d98310b4cdf6afa65e0effa_tn', alt="hình ảnh")
+        //-           p.table__name-product= product.name
+        //-         td= (product.price / 1000).toFixed(3) + 'đ'
+        //-         td= 1
+        
+        if !products[0]
+          p Chưa có sản phẩm nào!

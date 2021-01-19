@@ -1,0 +1,150 @@
+extend ../layouts/common 
+block header
+  header.header
+    .grid.wide
+      nav.navbar
+        ul.navbar__list
+          li.navbar__item.navbar__item-separate
+            a.navbar__link(href='/seller/index' target='blank')
+              | K&ecirc;nh Ng&#x1B0;&#x1EDD;i
+              | B&aacute;n
+          li.navbar__item.navbar__item-separate
+            a.navbar__link(href='#') T&#x1EA3;i &#x1EE9;ng d&#x1EE5;ng
+            .navbar__dropdown.navbar__dowload
+              .navbar__qr
+                img(src='/image/qr.png', alt='qr code')
+              .navbar__app
+                .navbar__app-chplay
+                  img(src='/image/chplay.png', alt='')
+                .navbar__app-appstore
+                  img(src='/image/appstore.png', alt='')
+          li.navbar__item.navbar__item-cn K&#x1EBF;t n&#x1ED1;i
+          li.navbar__item
+            a.navbar__link.navbar__link-icon.navbar__link-icon--fb(href='#')
+              // <i class="fab fa-facebook"></i>
+            a.navbar__link.navbar__link-icon.navbar__link-icon--ins(href='#')
+              // <i class="fab fa-instagram"></i>
+        ul.navbar__list
+          li.navbar__item
+            a.navbar__link(href='#')
+              i.fa.fa-bell
+              span Th&ocirc;ng b&aacute;o
+            .navbar__dropdown.navbar__notify
+              .navbar__notify-heading Th&ocirc;ng b&aacute;o m&#x1EDB;i nh&#x1EAD;n
+              .navbar__notify-body
+                a.navbar__notify-item(href='#')
+                  .navbar__notify-img
+                  .navbar__notify-content
+                    h3.navbar__notify-title &Dstrok;i&#x1EC7;n t&#x1EED; &Dstrok;&#x1ED3;ng Gi&aacute; 12K - mua th&#x1EA3; ga
+                    p.navbar__notify-desc
+                      | M&atilde; gi&#x1EA3;m gi&aacute; l&ecirc;n &dstrok;&#x1EBF;n 30K t&#x1EEB; c&#x1EED;a h&agrave;ng - ch&#x1EAD;m
+                      | ch&acirc;n l&agrave; kh&ocirc;ng c&ograve;n.
+                a.navbar__notify-item(href='#')
+                  .navbar__notify-img
+                  .navbar__notify-content
+                    h3.navbar__notify-title &Dstrok;i&#x1EC7;n t&#x1EED; &Dstrok;&#x1ED3;ng Gi&aacute; 12K - mua th&#x1EA3; ga
+                    p.navbar__notify-desc
+                      | M&atilde; gi&#x1EA3;m gi&aacute; l&ecirc;n &dstrok;&#x1EBF;n 30K t&#x1EEB; c&#x1EED;a h&agrave;ng - ch&#x1EAD;m
+                      | ch&acirc;n l&agrave; kh&ocirc;ng c&ograve;n.
+                a.navbar__notify-item(href='#')
+                  .navbar__notify-img
+                  .navbar__notify-content
+                    h3.navbar__notify-title &Dstrok;i&#x1EC7;n t&#x1EED; &Dstrok;&#x1ED3;ng Gi&aacute; 12K - mua th&#x1EA3; ga
+                    p.navbar__notify-desc
+                      | M&atilde; gi&#x1EA3;m gi&aacute; l&ecirc;n &dstrok;&#x1EBF;n 30K t&#x1EEB; c&#x1EED;a h&agrave;ng - ch&#x1EAD;m
+                      | ch&acirc;n l&agrave; kh&ocirc;ng c&ograve;n.
+                a.navbar__notify-item.navbar__notify-item--active(href='#')
+                  .navbar__notify-img
+                  .navbar__notify-content
+                    h3.navbar__notify-title &Dstrok;i&#x1EC7;n t&#x1EED; &Dstrok;&#x1ED3;ng Gi&aacute; 12K - mua th&#x1EA3; ga
+                    p.navbar__notify-desc
+                      | M&atilde; gi&#x1EA3;m gi&aacute; l&ecirc;n &dstrok;&#x1EBF;n 30K t&#x1EEB; c&#x1EED;a h&agrave;ng - ch&#x1EAD;m
+                      | ch&acirc;n l&agrave; kh&ocirc;ng c&ograve;n.
+                a.navbar__notify-item(href='#')
+                  .navbar__notify-img
+                  .navbar__notify-content
+                    h3.navbar__notify-title &Dstrok;i&#x1EC7;n t&#x1EED; &Dstrok;&#x1ED3;ng Gi&aacute; 12K - mua th&#x1EA3; ga
+                    p.navbar__notify-desc
+                      | M&atilde; gi&#x1EA3;m gi&aacute; l&ecirc;n &dstrok;&#x1EBF;n 30K t&#x1EEB; c&#x1EED;a h&agrave;ng - ch&#x1EAD;m
+                      | ch&acirc;n l&agrave; kh&ocirc;ng c&ograve;n.
+              a.navbar__notify-footer(href='#') Xem t&#x1EA5;t c&#x1EA3;
+          li.navbar__item
+            a.navbar__link(href='#')
+              i.fa.fa-question-circle
+              span Tr&#x1EE3; gi&uacute;p
+          if(userName)
+            li.navbar__item
+              a.navbar__link(href='/user/purchase')
+                span.navbar__avatar
+                  img(src= userAvatar, alt='avatar')
+                span.navbar__username= userName
+              .navbar__dropdown.navbar__account
+                a.navbar__account-item(href='/user/account') T&agrave;i kho&#x1EA3;n c&#x1EE7;a t&ocirc;i
+                a.navbar__account-item(href='/user/purchase') &Dstrok;&#x1A1;n mua
+                a.navbar__account-item(href='/user/logout') &Dstrok;&abreve;ng xu&#x1EA5;t
+          else
+            li.navbar__item.navbar__item-separate
+              a.navbar__link(href='/auth/register') &Dstrok;&abreve;ng k&yacute;
+            li.navbar__item
+              a.navbar__link(href='/auth/login') &Dstrok;&abreve;ng nh&#x1EAD;p
+    .header__checkout
+      a.header__checkout-logo(href='/')
+          img(src='/image/logo2.jpg', alt='logo')
+      p.header__checkout__heading
+        block headerContent
+          | Thanh Toán
+  // End header
+
+block container 
+  .container.checkout
+    .grid.wide
+      .checkout__address
+        .checkout__address-heading 
+          i(class="fas fa-map-marker-alt")
+          | Địa chỉ nhận hàng
+        strong.checkout__address-name= `${user.name} (${user.phone})`
+        span.checkout__address-label= user.address
+
+        a.btn-edit-profile(href='/user/account' title='Chỉnh sửa thông tin nhận hàng')
+          i(class="far fa-edit")
+      .checkout__body
+        form(action="", method="POST").checkout__product
+          table.checkout__tabel
+            thead
+              tr
+                th.table__heading Sản phẩm
+                th.table__price Đơn giá
+                th.table__quantum Số lượng 
+                th.table__pay Thành tiền
+            tbody
+              tr
+                td(colspan="4")
+                  p.table__nameShop
+                    i(class="fas fa-store")
+                    span= user.shopName || 'Chương'
+              tr.table-row__item
+                td.table-row__product
+                  img(src=product.image, alt="hình ảnh")
+                  p.table__name-product= product.name
+                td=(product.price / 1000).toFixed(3) + 'đ'
+                td 1
+                td=(product.price / 1000).toFixed(3) + 'đ'
+          .checkout__product-message
+            .checkout__product-note
+              label(for="note") Lời nhắn
+              input(type="text" name='note' placeholder='Ghi chú cho chủ shop')
+            .checkout__product-move
+              span Phí vận chuyễn: 
+              span 24.000đ 
+          .checkout__product-pay
+            span Tổng số tiền:
+            span= (product.price / 1000).toFixed(3) + 'đ'
+          .checkout__product-btn
+            input#btn-show.checkout__product-btn-input.btn.btn-primary(type='submit' value='Đặt hàng')
+  div#box-notify
+    div.box-notify-image
+      img(src="/image/done-icon.png")
+    p.box-notify__label Đặt hàng thành công
+  script(src="/js/showNotify.js")          
+
+

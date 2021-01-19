@@ -1,0 +1,86 @@
+extend ../layouts/common
+
+block container
+  .container-detail
+    .grid.wide
+      .container-detail__heading
+        .row
+          .col.l-1
+            .pic-product-sub(style=`background-image: url(${product.image});`)
+          .col.l-5
+            .pic-product(style=`background-image: url(${product.image});`)
+          .col.l-6
+            .content-product
+              h2.content-product__title= product.name
+              .content-product__price
+                span.content-product__price-new=(product.price / 1000).toFixed(3) + 'đ'
+                del.content-product__price-old=(product.oldPrice / 1000).toFixed(3) + 'đ'
+              .content-product__quantity
+                p.content-product__quantity-label S&#x1ED1; l&#x1B0;&#x1EE3;ng
+                .content-product__quantity-box
+                  button#btn-reduce.content-product__quantity-btn -
+                  input#input-quantity.content-product__quantity-input(disabled, value='1')
+                  button#btn-increase.content-product__quantity-btn +
+              .content-product__handle
+                a#btn-show(href='/user/addToCart/' + product.id).btn.btn-add-cart
+                  i.fa.fa-cart-plus
+                  |                   Th&ecirc;m v&agrave;o gi&#x1ECF; h&agrave;ng
+                a(href='/user/checkout/' + product.id).btn.btn-buy-now Mua ngay
+              .content-product__commitment
+                p.content-product__commitment-label Cam k&#x1EBF;t c&#x1EE7;a c&#x1EED;a h&agrave;ng
+                p.content-product__commitment-item
+                  i.fas.fa-check.content-product__commitment-check-icon
+                  | &Dstrok;&#x1EA3;m b&#x1EA3;o h&agrave;ng ch&#x1EA5;t l&#x1B0;&#x1EE3;ng 100%
+                p.content-product__commitment-item
+                  i.fas.fa-check.content-product__commitment-check-icon
+                  | Date m&#x1EDB;i nh&#x1EA5;t
+                p.content-product__commitment-item
+                  i.fas.fa-check.content-product__commitment-check-icon
+                  | Giao h&agrave;ng nhanh nh&#x1EA5;t
+                p.content-product__commitment-item
+                  i.fas.fa-check.content-product__commitment-check-icon
+                  | Ph&#x1EE5;c v&#x1EE5; kh&aacute;ch h&agrave;ng h&agrave;i l&ograve;ng
+                p.content-product__commitment-item
+                  i.fas.fa-check.content-product__commitment-check-icon
+                  | &Dstrok;&#x1ED5;i tr&#x1EA3; trong v&ograve;ng 30 ng&agrave;y, ho&agrave;n ti&#x1EC1;n 120% n&#x1EBF;u kh&ocirc;ng &dstrok;&uacute;ng ch&#x1EA5;t l&#x1B0;&#x1EE3;ng
+      .row
+        .col.l-12
+          .desc-product
+            p.desc-product__heading Chi ti&#x1EBF;t s&#x1EA3;n ph&#x1EA9;m
+            p.desc-product__detail= product.description
+      
+      .similar-product
+        p.similar-product__heading Có thể bạn cũng thích
+        .row
+          each s_product in similarProducts
+            .col.l-2
+              //- a.product-card__link(href=`/detail/${s_product.name.replace(/ /mg, '-')}.${s_product.id}`)
+              a.product-card__link(href=`/detail/${s_product.id}`)
+                .product-card
+                  .product-card__image(style=`background-image: url(${s_product.image});`)
+                    // <img src="https://cf.shopee.vn/file/8bfdf4fd7920223080f33b73f7cc7389_tn" alt="image">
+                  .product-card__body
+                    h2.product-card__name= s_product.name
+                    .product-card__price
+                      del.product-card__price--old #{(s_product.oldPrice / 1000).toFixed(3)}&dstrok;
+                      span.product-card__price--new #{(s_product.price / 1000).toFixed(3)}&dstrok;
+                      span.product-card__ship
+                        i.fa.fa-shipping-fast
+                    .product-card__rating
+                      .product-card__rating-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.far.fa-star
+                      .product-card__rating-sold &Dstrok;&atilde; b&aacute;n 160
+                    .product-card__address-shop Tp H&#x1ED3; Ch&iacute; Minh
+                  .product-card__favorite-tag Y&ecirc;u th&iacute;ch
+                  .product-card__discount-tag
+                    span.product-card__discount-percent= Math.round((1- s_product.price / s_product.oldPrice) * 100) + '%'
+                    span.product-card__discount-label GI&#x1EA2;M
+  div#box-notify
+    div.box-notify-image
+      img(src="/image/done-icon.png")
+    p.box-notify__label Đã thêm sản phẩm vào giỏ
+  script(src="/js/showNotify.js")

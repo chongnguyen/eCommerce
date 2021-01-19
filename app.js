@@ -4,15 +4,19 @@ const mongoose = require('mongoose');
 var cookieParser = require('cookie-parser')
 
 // define Model
-const User = require('./models/user.model');
-const Product = require('./models/product.model');
+// const User = require('./models/user.model');
+// const Product = require('./models/product.model');
 
 // Define Router
 const authRouter = require('./routers/auth.router');
 const userRouter = require('./routers/user.router');
+const productRouter = require('./routers/product.router');
+const sellerRouter = require('./routers/seller.router');
+const searchRouter = require('./routers/search.router');
 
 // middlewares
 const userName = require('./middlewares/username.middleware');
+const authMiddleware = require('./middlewares/auth.middleware');
 
 const app = express();
 
@@ -59,15 +63,21 @@ const port = 3000;
 
 
 
-app.get('/', async (req, res) => {
-  let products = await Product.findOne();
-  res.render('layouts/common', {
-    products
-  });
-})
-
-// app.use('', )
+// app.get('/', async (req, res) => {
+//   let products = await Product.findOne();
+//   res.render('layouts/common', {
+//     products
+//   });
+// })
+app.use('/', productRouter);
+app.use('/search', searchRouter);
 app.use('/auth', authRouter);
-app.use('/user', userRouter);
+app.use('/user', authMiddleware.loginMiddleware, userRouter);
+app.use('/seller', authMiddleware.loginMiddleware, sellerRouter);
 
 app.listen(port, () => console.log(`Server listen at http://localhost:${port}`));
+
+// todo: format description product
+// todo: find product, bill, purcharse
+// todo: filter bar
+// todo: filter bill.....

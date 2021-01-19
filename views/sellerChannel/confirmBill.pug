@@ -1,0 +1,28 @@
+extend ./index
+block contentHeader
+  span.title-page Chi tiết đơn hàng
+block content
+  .buyer__address
+    .buyer__address-heading 
+      i(class="fas fa-map-marker-alt")
+      | Địa chỉ giao hàng
+    strong.buyer__address-name= `${user.name} (${user.phone})`
+    span.buyer__address-label= user.address
+  .bill-box
+    .bill-box__body
+      .cart
+        .cart-bar
+          .cart-bar__product Sản phẩm
+          .cart-bar__unit-price Trạng thái
+          .cart-bar__quantum Số lượng
+          .cart-bar__price-bill Thanh tiền
+        .cart-item
+          .cart-item__product
+            .cart-item__img
+              img(src=product.image, alt='')
+            a(href='/detail/'+product.id).cart-item__name= product.name
+          .cart-item__unit-price= bill.state
+          .cart-item__quantum= 1
+          .cart-item__bill-price= (product.price).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
+      form(action="", method="post")
+        input.btn.btn-primary.btn-seller(type="submit", value="Xác nhận đơn hàng")

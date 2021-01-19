@@ -5,7 +5,12 @@ const ProductSchema = new mongoose.Schema({
   price: Number,
   description: String,
   image: String,
-  oldPrice: Number
+  oldPrice: Number,
+  genres: String,
+  quantum: Number,
+  sku: String,
+  shopId: String,
+  date: Date
 });
 
 const Product = mongoose.model('Product', ProductSchema);

@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
 const BillSchema = new mongoose.Schema({
-  product: String,
-  buyer: Number,
-  shop: String,
+  productId: String,
+  buyerId: String,
+  shopId: String,
   price: String,
+  date: Date,
+  note: String,
+  state: Number, // 0 -> chờ xac nhận, 1 -> Đang giao hàng, 2 -> Đã giao hàng, 3 -> Đã hủy.
   cart: {
 
   }

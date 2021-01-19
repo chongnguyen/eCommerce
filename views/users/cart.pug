@@ -1,0 +1,30 @@
+extend ./checkout
+block headerContent
+  | Giỏ Hàng
+block container
+  .container.purchase
+    .grid.wide
+      .cart
+        .cart-bar
+          .cart-bar__product S&#x1EA3;n ph&#x1EA9;m
+          .cart-bar__unit-price &Dstrok;&#x1A1;n gi&aacute;
+          .cart-bar__quantum S&#x1ED1; l&#x1B0;&#x1EE3;ng
+          .cart-bar__price-bill Th&agrave;nh ti&#x1EC1;n
+          .cart-bar__handle Thao t&aacute;c
+        each product, i in listProduct
+          .cart-item
+            .cart-item__product
+              input.cart-item__checkbox(type='checkbox' value= product.id name='product_id')
+              .cart-item__img
+                img(src=product.image, alt='')
+              a(href='/detail/'+product.id).cart-item__name= product.name
+            .cart-item__unit-price
+              del= product.oldPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})
+              span &nbsp;&nbsp;&nbsp;
+              span= product.price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
+            .cart-item__quantum= cart[product.id]
+            .cart-item__bill-price= (product.price  * cart[product.id]).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
+            .cart-item__handle
+              a.cart-item__delete(href='/user/cart/delete/' + product.id)  X&oacute;a
+        div.cart-btn
+          a.btn.btn-primary.btn-purchase Mua hàng
