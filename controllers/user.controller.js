@@ -6,13 +6,13 @@ const Bill = require("../models/bill.model");
 
 
 module.exports.cart = async (req, res) => {
-  let {userId} = req.signedCookies;
+  let { userId } = req.signedCookies;
   let user = await User.findById({ _id: userId });
   let cart = JSON.parse(user.cart);
   let productsInCart = Object.keys(cart) || [];
   // let quantumInCart = Object.values(cart);
-  let listProduct = await Product.find({_id: {$in: productsInCart}}) || [];
-  
+  let listProduct = await Product.find({ _id: { $in: productsInCart } }) || [];
+
   res.render('users/cart', {
     listProduct,
     cart
@@ -38,8 +38,8 @@ module.exports.purchase = async (req, res) => {
 }
 
 module.exports.removeItemCart = async (req, res) => {
-  let {userId} = req.signedCookies;
-  let {productId} = req.params;
+  let { userId } = req.signedCookies;
+  let { productId } = req.params;
 
   let user = await User.findById({ _id: userId });
   let cart = JSON.parse(user.cart);
@@ -78,12 +78,13 @@ module.exports.addToCart = async (req, res) => {
   let { userId } = req.signedCookies;
 
   let user = await User.findOne({ _id: userId }) || {};
+
   if(user.cart){
     cart = JSON.parse(user.cart);
   } else {
     cart = {}
   }
-  
+
   if( cart[productId] ){
     ++cart[productId]
   } else {
@@ -106,8 +107,6 @@ module.exports.postAccout = async (req, res) => {
   let user = await User.findById({ _id: id });
 
   let infoUser = { ...req.body };
-
-
 
   if (req.file) {
     //file removed

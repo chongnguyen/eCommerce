@@ -56,7 +56,7 @@ module.exports.bill = async (req, res) => {
   });
 }
 
-module.exports.deleleProduct = async (req, res) => {
+module.exports.deleteProduct = async (req, res) => {
   let {productId} = req.params;
   Product.deleteOne({_id: productId}, (err) => {
     if(err){
@@ -108,8 +108,11 @@ module.exports.postCreate = (req, res) => {
   let product = {... req.body};
   product.shopId = id;
   product.date = new Date();
+  if( product.price <= 0 || product.oldPrice <= 0) {
+    res.send('<script>alert("Giá của sản phẩm không được âm, vui lòng kiểm tra lại!"); location.assign("/seller/create")</script>');
+    return;
+  }
   if(req.file){
-    console.log(req.file);
     // let filename = req.file.path.split('\\')[2];
     let filename = req.file.filename;
     product.image = "https://res.cloudinary.com/di3tcnhtx/image/upload/v1598237198/sonmoi_3ce/" + filename;

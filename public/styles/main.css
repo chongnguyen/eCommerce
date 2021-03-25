@@ -391,14 +391,6 @@
 	margin: 0;
 	color: var(--text-color);
 }
-.cart-dropdown__btn-del {
-	font-size: 1.4rem;
-	color: var(--text-color);
-	margin-top: 8px;
-}
-.cart-dropdown__btn-del:hover {
-	color: var(--primary-color);
-}
 .cart-dropdown__block-right {
 	display: flex;
 	flex-direction: column;
@@ -712,8 +704,8 @@
 	display: flex;
 	justify-content: center;
 }
-.pagination__item {
-
+.desc-product__detail{
+	white-space: pre;
 }
 .pagination__link {
 	display: block;

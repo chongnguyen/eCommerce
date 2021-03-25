@@ -17,8 +17,8 @@ block content-profile
           .purchase__body-top
             .purchase__shop-info
               .purchase__shop-img
-                img(src= shops[i].avatar, alt='')
-              p.purchase__shop-name= shops[i].shopName
+                img(src= shops[i] && shops[i].avatar, alt='')
+              p.purchase__shop-name= shops[i] && shops[i].shopName
             .purchase__state
               if(bills[i].state)
                 span.purchase__state-label Đang lấy hàng

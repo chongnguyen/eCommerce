@@ -61,8 +61,6 @@ app.use(userName.userName);
 
 const port = 3000;
 
-
-
 // app.get('/', async (req, res) => {
 //   let products = await Product.findOne();
 //   res.render('layouts/common', {
@@ -77,7 +75,15 @@ app.use('/seller', authMiddleware.loginMiddleware, sellerRouter);
 
 app.listen(port, () => console.log(`Server listen at http://localhost:${port}`));
 
-// todo: format description product
 // todo: find product, bill, purcharse
-// todo: filter bar
 // todo: filter bill.....
+// todo: cancel bill.....
+// PRICE CANT NAVIGATE.
+// UPDATE KIND OF PRODUCT
+// FILTER BY LOCATION.
+// HANDLE STATE OF BILL.
+// ADD FORGOT PASSWORD
+// PHAN TRANG/TIM KIEM/FILTER SAN PHAM CUA SHOP
+// CHINH SUA SAN PHAM
+// CAP NHAT STATUS CUA DON HANG TRONG TRANG KHACH HANG
+// TICH HOP THANH TOAN ONLINE

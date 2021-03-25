@@ -150,7 +150,6 @@ html(lang="vi")
                               h3.cart-dropdown__title= product.name
                               div.cart-dropdown__block-right
                                 p.cart-dropdown__price= (product.price).toLocaleString('vi', {style : 'currency', currency : 'VND'})
-                                span.cart-dropdown__btn-del(target=product.id) X&oacute;a
                   .cart-dropdown__footer
                     p.cart-dropdown__total-item= listProduct.length + ' Sản phẩm thêm vào giỏ hàng'
                     a.btn.btn-primary(href='/user/cart') Xem gi&#x1ECF; h&agrave;ng
