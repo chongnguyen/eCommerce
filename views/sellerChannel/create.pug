@@ -12,41 +12,70 @@ block container
                 h3.add-product__heading Th&ocirc;ng tin c&#x1A1; b&#x1EA3;n
                 p.form-group
                   label.form-group__label(for='name') T&ecirc;n s&#x1EA3;n ph&#x1EA9;m(*)
-                  input#name.form-group__input(required='required', name='name')
-                p.form-group
-                  label.form-group__label(for='sku') M&atilde; SKU(*)
-                  input#sku.form-group__input(required='required', name='sku')
+                  input#name.form-group__input(required='required', name='name', value=product?product.name : '')
                 p.form-group
                   label.form-group__label(for='description') M&ocirc; t&#x1EA3;(*)
-                  textarea#description.form-group__input(required='required', name='description', cols='100', rows='25')
+                  textarea#description.form-group__input(required='required', name='description', cols='100', rows='25') #{product?product.description : ''}
                 p.form-group
                   label.form-group__label(for='genres') Danh m&#x1EE5;c
                   select#genres.form-group__select(name='genres')
-                    option.form-group__select-item(value='son môi') Son m&ocirc;i
-                    option.form-group__select-item(value='trang điểm mặt') Trang &dstrok;i&#x1EC3;m m&#x1EB7;t
-                    option.form-group__select-item(value='trang điểm mắt') Trang &dstrok;i&#x1EC3;m m&#x1EAF;t
-                    option.form-group__select-item(value='chăm sóc da') Ch&abreve;m s&oacute;c da
-                    option.form-group__select-item(value='nước hoa') N&#x1B0;&#x1EDB;c hoa
-                    option.form-group__select-item(value='chăm sóc tóc') Ch&abreve;m s&oacute;c t&oacute;c
-                    option.form-group__select-item(value='khác') Kh&aacute;c
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'son môi'),
+                      value='son môi') Son m&ocirc;i
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'trang điểm mặt'),
+                      value='trang điểm mặt') Trang &dstrok;i&#x1EC3;m m&#x1EB7;t
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'trang điểm mắt'),
+                      value='trang điểm mắt') Trang &dstrok;i&#x1EC3;m m&#x1EAF;t
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'chăm sóc da'),
+                      value='chăm sóc da') Ch&abreve;m s&oacute;c da
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'nước hoa'),
+                      value='nước hoa') N&#x1B0;&#x1EDB;c hoa
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'chăm sóc tóc'),
+                      value='chăm sóc tóc') Ch&abreve;m s&oacute;c t&oacute;c
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'Dây truyền nam'),
+                      value='Dây truyền nam') Dây truyền nam
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'Dây truyền nữ'),
+                      value='Dây truyền nữ') Dây truyền nữ
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'Lắc chân nữ'),
+                      value='Lắc chân nữ') Lắc chân nữ
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'Lắc tay nam'),
+                      value='Lắc tay nam') Lắc tay nam
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'Nhẫn đôi'),
+                      value='Nhẫn đôi') Nhẫn đôi
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'Vòng tay nam'),
+                      value='Vòng tay nam') Vòng tay nam
+                    option.form-group__select-item(
+                      selected=(product && product.genres === 'khác'),
+                      value='khác') Kh&aacute;c
               #seller.add-product__price
                 h3.add-product__heading Th&ocirc;ng tin b&aacute;n h&agrave;ng
                 p.form-group
                   label.form-group__label(for='price') Gi&aacute; b&aacute;n(*)
-                  input#price.form-group__input(required='required', name='price' min=1000 max=999999 title='tối thiểu 1000')
+                  input#price.form-group__input(required='required', name='price', value=product?product.price : '' min=1000 max=999999 title='tối thiểu 1000')
                   // <label class='form-group__label-d' for="">(đ)</label>
                 p.form-group
                   label.form-group__label(for='oldPrice') Gi&aacute; g&#x1ED1;c
-                  input#oldPrice.form-group__input(required='required', name='oldPrice', value='0')
+                  input#oldPrice.form-group__input(required='required', name='oldPrice', value=product?product.oldPrice : '0')
                   // <label class='form-group__label-d' for="">(đ)</label>
                 p.form-group
                   label.form-group__label(for='quantum') S&#x1ED1; l&#x1B0;&#x1EE3;ng(*)
-                  input#quantum.form-group__input(required='required', name='quantum', value='1')
+                  input#quantum.form-group__input(required='required', name='quantum', value=product?product.quantum : '1')
               #image.add-product__image
                 h3.add-product__heading Qu&#x1EA3;n l&yacute; h&igrave;nh &#x1EA3;nh
-                input.form-group__input1(type='file', name='image' required)
+                input.form-group__input1(type='file', name='image', value=product?product.image : '' required=!Boolean(product))
               .form-group__btn
-                input.btn-primary.btn-seller(type="submit", value="Tạo sản phẩm")
+                input.btn-primary.btn-seller(type="submit", value=product ? "Cập nhật" : "Tạo sản phẩm")
         .col.l-2
           aside.anchor
             a.anchor__link.active(href='#info') Th&ocirc;ng tin c&#x1A1; b&#x1EA3;n

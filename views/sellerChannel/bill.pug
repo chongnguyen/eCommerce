@@ -37,28 +37,28 @@ block content
               .cart-item__bill-price= (product.price).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
               .cart-item__handle
                 a.cart-item__delete(href='/seller/bill/'+bills[i].id) Chi tiết
-        //- table.bill-box__body
-        //-   thead
-        //-     tr.table__heading
-        //-       th Sản phẩm
-        //-       th Trạng thái
-        //-       th Đơn giá
-        //-       th Số lượng 
-        //-       th Thành tiền
-        //-       th 
-        //-   tbody
-            
-        //-     each product, index in products
-        //-       tr.table-row__item
-        //-         td.table-row__product
-        //-           img(src=product.image, alt="hình ảnh")
-        //-           //- img(src='https://cf.shopee.vn/file/3fab8b293d98310b4cdf6afa65e0effa_tn', alt="hình ảnh")
-        //-           p.table__name-product= product.name
-        //-         td= bills[index].state
-        //-         td= (product.price / 1000).toFixed(3) + 'đ'
-        //-         td= 1
-        //-         td= (product.price / 1000).toFixed(3) + 'đ'
-        //-         td
-        //-           a.table__link(href='/seller/bill/'+bills[index].id) Chi tiết
+          .pagination
+            ul.pagination__list
+              li.pagination__item
+                if(hasPrevPage)
+                  a.pagination__link(href='?page=' + prevPage)
+                    i.pagination__link-icon.fas.fa-angle-left
+                else
+                  a.pagination__link.disabled-link
+                    i.pagination__link-icon.fas.fa-angle-left
+              - var n = 0
+                while n < totalPages
+                  li.pagination__item
+                    if(page === ++n)
+                      a.pagination__link.pagination__link--active(href='?page=' + n)= n
+                    else
+                      a.pagination__link(href='?page=' + n)= n
+              li.pagination__item
+                if(hasNextPage)
+                  a.pagination__link(href='?page=' + nextPage)
+                    i.pagination__link-icon.fas.fa-angle-right
+                else
+                  a.pagination__link.disabled-link(href='?page=' + nextPage)
+                    i.pagination__link-icon.fas.fa-angle-right
         if !bills[0]
           p Chưa có đơn hàng nào!

@@ -3,14 +3,17 @@ const Product = require('../models/product.model');
 module.exports.index = async (req, res) => {
   let { keyword = ''} = req.query
     , genre  = req.params.genre
+    , address  = req.params.address
     , {kind = ''} = req.query
     , objFind = {}
     , products = [];
 
   genre = genre ? genre.replace(/-/mg, ' ') : '';
+  address = address ? address.replace(/-/mg, ' ') : '';
 
   keyword && (objFind.name = new RegExp(keyword, 'i'));
   genre && (objFind.genres = genre);
+  address && (objFind.address = address);
   if(kind) {
     const sort = {};
     if(kind === 'price') sort.price = 1;
@@ -22,6 +25,7 @@ module.exports.index = async (req, res) => {
   }
   
   let genres = await Product.distinct('genres');
+  let add = await Product.distinct('address');
 
   // Phan trang
   let { start, end, arr, temp, pageCurrent } = pagination(products, req.query.page);
@@ -29,11 +33,13 @@ module.exports.index = async (req, res) => {
   res.render('layouts/common', {
     products: products.slice(start, end),
     genres,
+    address: add,
     pages: arr,
     active: parseInt(pageCurrent),
     max: temp,
     keyword,
     kind: genre,
+    province: address,
   });
 }
 

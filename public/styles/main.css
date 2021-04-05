@@ -426,9 +426,13 @@
 	padding-top: 40px;
 }
 /* Aside category */
-.category {
+.category, .address {
 	background-color: var(--white-color);
 	font-size: 1.4rem;
+}
+
+.address {
+	margin-top: 40px;
 }
 .category__heading {
 	padding: 0px 8px;

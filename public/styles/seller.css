@@ -539,10 +539,38 @@ textarea.form-group__input {
   text-align: left;
 	flex: 1;
 }
+/* Pagination */
+.pagination {
+	margin-top: 26px;
+	margin-bottom: 60px;
+}
+.pagination__list {
+	display: flex;
+	justify-content: center;
+}
+.desc-product__detail{
+	white-space: pre;
+}
+.pagination__link {
+	display: block;
+	color: #939393;
+	height: 30px;
+	line-height: 30px;
+	width: 40px;
+	font-size: 1.6rem;
+	text-align: center;
+	border-radius: 2px;
+	margin: 0px 6px;
+}
+
+.pagination__link--active {
+	background-color: var(--primary-color);
+	color: #fff;
+}
 
 .cart-bar__unit-price,
 .cart-item__unit-price {
-  width: 15%;
+  width: 12%;
 }
 
 .cart-bar__quantum,
@@ -564,10 +592,11 @@ textarea.form-group__input {
 .cart-item {
   display: flex;
   background-color: white;
-  margin-top: 20px;
-	padding: 20px 0 20px 20px;
+  margin-top: 0px;
+  padding: 4px 0 4px 0px;
   align-items: center;
   border-bottom: 1px solid #f5f5f5;
+  border-top: 1px solid #f5f5f5;
 }
 
 .cart-item__product {
@@ -590,6 +619,11 @@ textarea.form-group__input {
 
 .cart-item__delete {
   color: #333;
+  margin: 0px 6px;
+}
+
+.cart-item__delete.cart-item__delete-blue {
+  color: rgb(0, 110, 255);
 }
 
 .cart-item__delete:hover {
@@ -614,7 +648,7 @@ textarea.form-group__input {
 }
 .bill-confirm {
   display: inline-block;
-  padding: 14px 8px; 
+  padding: 10px 4px; 
   border-radius: 6px;
   color: #fff;
   background-color: #007bff;

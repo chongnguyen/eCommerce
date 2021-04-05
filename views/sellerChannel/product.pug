@@ -12,7 +12,7 @@ block content
         a.bill-box__top-item(href='/') Đã huỷ
       .bill-box__top-search
         form(action="", method="get")
-          input.bill-box__top-input(value = value || '', name='q' placeholder='Tìm đơn hàng')
+          input.bill-box__top-input(value = search || '', name='q' placeholder='Tìm đơn hàng')
           input.btn.btn-primary.bill-box__top-btn(type="submit", value="Tìm")
     block table
       .bill-box__body
@@ -34,7 +34,31 @@ block content
                 span= product.price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
               .cart-item__quantum= product.quantum
               .cart-item__handle
+                a.cart-item__delete.cart-item__delete-blue(href='/seller/update/' + product.id)  Sửa
                 a.cart-item__delete(href='/seller/product/delete/' + product.id)  X&oacute;a
+          .pagination
+            ul.pagination__list
+              li.pagination__item
+                if(hasPrevPage)
+                  a.pagination__link(href='?page=' + prevPage)
+                    i.pagination__link-icon.fas.fa-angle-left
+                else
+                  a.pagination__link.disabled-link
+                    i.pagination__link-icon.fas.fa-angle-left
+              - var n = 0
+                while n < totalPages
+                  li.pagination__item
+                    if(page === ++n)
+                      a.pagination__link.pagination__link--active(href='?page=' + n)= n
+                    else
+                      a.pagination__link(href='?page=' + n)= n
+              li.pagination__item
+                if(hasNextPage)
+                  a.pagination__link(href='?page=' + nextPage)
+                    i.pagination__link-icon.fas.fa-angle-right
+                else
+                  a.pagination__link.disabled-link(href='?page=' + nextPage)
+                    i.pagination__link-icon.fas.fa-angle-right
           div.cart-btn
             a.btn.btn-primary.btn-purchase Mua hàng
         //- table.bill-box__body

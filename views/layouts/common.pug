@@ -172,7 +172,14 @@ html(lang="vi")
                     a.category__item-link.active(href='/genres/' + genre.replace(/ /mg, '-'))= genre
                   else
                     a.category__item-link(href='/genres/' + genre.replace(/ /mg, '-'))= genre
-                
+              aside.address
+                h4.category__heading
+                  span Nơi Bán
+                each add of address
+                  if(add === province)
+                    a.category__item-link.active(href='/address/' + add.replace(/ /mg, '-'))= add
+                  else
+                    a.category__item-link(href='/address/' + add.replace(/ /mg, '-'))= add 
               // End aside
             .col.l-10
               main.main-content
